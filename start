@@ -86,7 +86,7 @@ _set_bot () {
     rm -rf "$zippath"
     _run_andencento_git
     cd $CATPATH
-    _run_nob_git
+    _run_noob_git
     python3 ../setup/updater.py ../requirements.txt requirements.txt
     chmod -R 755 bin
     echo "    Configuring The Bot    "
