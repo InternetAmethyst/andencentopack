@@ -1,68 +1,112 @@
 {
-  "name": "Catuserbot",
-  "description": "A simple Telegram userbot based on Telethon . Maintained by Sandeep ",
-  "logo": "https://telegra.ph/file/3d60313110c58684b31ea.jpg",
-  "keywords": [
+  "name": "ANDENCENTO-ᴜsᴇʀʙᴏᴛ",
+  "description": "ANDENCENTO-ᴜsᴇʀʙᴏᴛ is one of the Best UserBot for Telegram. Known for its Smoothness, Design, Support.",
+  "logo": "https://telegra.ph/file/99939edc0f7ac640ab688.png ",
+    "keywords": [
+    "telegram",
+    "userbot",
     "plugin",
+    "telethon",
+    "ANDENCENTO",
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/sandy1709/catuserbot/",
-  "website": "#TODO",
-  "success_url": "#TODO",
+  "repository": "https://github.com/Team-Andencento/Andencento",
+  "website": "https://github.com/Team-Andencento/Andencento",
+  "success_url": "https://github.com/Team-Andencento/Andencento",
   "env": {
-    "ALIVE_NAME": {
-      "description": "give your name",
-      "value": ""
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable heroku.",
+      "value": "ANYTHING"
+    },
+    "YOUR_NAME": {
+      "description": "Fill Your Telegram Name. Default Value is Andencento",
+      "value": "",
+      "required": false
+    },
+    "ALIVE_MSG": {
+      "description": "Your Custom Alive Message to show on Alive.",
+      "value": "",
+      "required": false
+    },
+    "ALIVE_PIC": {
+      "description": "Paste the telegraph link of a video/gif/pic to show on Alive.",
+      "value": "",
+      "required": false
+    },
+    "ABUSE": {
+      "description": "Leave it blank if you dont want Profanity in EivaBot. Else Fill ON.",
+      "value": "ON",
+      "required": false
+    },
+    "PMPERMIT_PIC": {
+      "description": "Paste the Telegraph link to show in pm permit message.",
+      "value": "",
+      "required": false
+    },
+    "PM_LOG_ID": {
+      "description": "Fill your private Channel ID if you want to Log PM messages. Get channel id from @Eiva50_bot",
+      "value": "",
+      "required": false
+    },
+    "HANDLER": {
+      "description": "Your command handler. Default is ' . ' (dot).",
+      "value": "."
+    },
+    "EMOJI_IN_HELP": {
+      "description": "A emoji to display in help command",
+      "value": " "
+    },
+    "BUTTONS_IN_HELP": {
+      "description": "No.of buttons to display in help menu.",
+      "value": "7"
+    },
+    "PM_PERMIT": {
+      "description": "Fill DISABLE to turn off pm permit.",
+      "value": "ENABLE"
     },
     "APP_ID": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
+      "description": "Get this value from my.telegram.org",
       "value": ""
     },
     "API_HASH": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
+      "description": "Get this value from my.telegram.org",
       "value": ""
     },
-    "STRING_SESSION": {
-      "description": "Get this value by running python3 telesetup.py locally or https://generatestringsession.sandeep1709.repl.run",
+    "LOGGER_ID": {
+      "description": "Create a private channel. And get it's id from @missrose_bot and paste here. Value should start with -100",
       "value": ""
     },
-    "TG_BOT_USERNAME": {
-      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the username of your bot",
+    "ANDENCENTO_SESSION": {
+      "description": "Get this value by using https://replit.com/@amanpandey7647/ANDENCENTOSESSION and fill this is your String Session.",
       "value": ""
-    },
-    "TG_BOT_TOKEN": {
-      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the token of your bot.Worth it. Get it.",
-      "value": ""
-    },
-    "COMMAND_HAND_LER": {
-      "description": "Set this one with only one the symbol to use it before your command to run like . , ' `",
-      "value": ".",
-      "required": false
-    },
-    "ENV": {
-      "description": "Setting this to ANYTHING will enable heroku.",
-      "value": "ANYTHING",
-      "required": false
     },
     "HEROKU_API_KEY": {
-      "description": "Required for updating the bot and other stuff get it from https://dashboard.heroku.com/account",
+      "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API. Required for updater to work.",
       "value": "",
-      "required": false
+      "required": true
     },
     "HEROKU_APP_NAME": {
-      "description": "YOUR app name ",
+      "description": "The Value of App Name you filled in right on top. Required for updater to work.",
+      "value": "",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Make a bot from @BotFather and paste the bot token here.",
+      "value": ""
+    },
+    "TAG_LOGGER": {
+      "description": "Make a group and add rose. Do /id and paste the chat id here.",
       "value": "",
       "required": false
     },
-    "TZ": {
-      "description": "Required for Correct Time on autopic/get time. Know your timezone from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
-      "value": "Asia/Kolkata",
-      "required": false
+    "BOT_USERNAME": {
+      "description": "Make a bot from @BotFather and paste the username here.",
+      "value": ""
     },
-    "UPSTREAM_REPO": {
-      "description": "Use either goodcat or badcat .if you need custom deploy then type your git repo link",
-      "value": "goodcat",
+    "SUDO_USERS": {
+      "description": "Userid of user to grant sudo access. Add multiple sudo users by giving a space between userids",
+      "value": "",
       "required": false
     }
   },
