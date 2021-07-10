@@ -1,7 +1,7 @@
-FROM sandy1709/catuserbot:alpine
+FROM Noob-stranger/andencento:alpine
 
 #clonning repo 
-RUN git clone https://github.com/sandy1709/catuserbot.git /root/userbot
+RUN git clone https://github.com/Noob-Stranger/andencento.git /root/userbot
 #working directory 
 WORKDIR /root/userbot
 
