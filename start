@@ -1,12 +1,11 @@
-#!/bin/bash
 
 _get_ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "andencento" ]]
+    if [[ $UPSTREAM_REPO == "goodcat" ]]
     then
         echo "YGh0dHBzOi8vZ2l0aHViLmNvbS9Ob29iLVN0cmFuZ2VyL2FuZGVuY2VudG8vYXJjaGl2ZS9tYXN0ZXIuemlwYA==" | base64 -d
-    elif [[ $UPSTREAM_REPO == "noob" ]]
+    elif [[ $UPSTREAM_REPO == "badcat" ]]
     then
         echo "YGh0dHBzOi8vZ2l0aHViLmNvbS9Ob29iLVN0cmFuZ2VyL2FuZGVuY2VudG8vYXJjaGl2ZS9tYXN0ZXIuemlwYA==" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -18,7 +17,7 @@ _get_ziplink () {
             echo "${UPSTREAM_REPO}/archive/master.zip"
         fi
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tL05vb2ItU3RyYW5nZXIvYW5kZW5jZW50by9hcmNoaXZlL21haW4uemlw==" | base64 -d
+        echo "YGh0dHBzOi8vZ2l0aHViLmNvbS9Ob29iLVN0cmFuZ2VyL2FuZGVuY2VudG8vYXJjaGl2ZS9tYXN0ZXIuemlwYA==" | base64 -d
     fi
 }
 
@@ -26,10 +25,10 @@ _get_repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "andencento" ]]
+    if [[ $UPSTREAM_REPO == "goodcat" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL05vb2ItU3RyYW5nZXIvYW5kZW5jZW50bw==" | base64 -d`
-    elif [[ $UPSTREAM_REPO == "noob" ]]
+    elif [[ $UPSTREAM_REPO == "badcat" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL05vb2ItU3RyYW5nZXIvYW5kZW5jZW50bw==" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -46,13 +45,11 @@ _run_python_code() {
     python3${pVer%.*} -c "$1"
 }
 
-_run_andencento_git() {
+_run_catpack_git() {
     $(_run_python_code 'from git import Repo
 import sys
-
 OFFICIAL_UPSTREAM_REPO = "https://github.com/Noob-Stranger/andencentopack"
 ACTIVE_BRANCH_NAME = "master"
-
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
@@ -60,7 +57,7 @@ repo.create_head(ACTIVE_BRANCH_NAME, origin.refs[ACTIVE_BRANCH_NAME])
 repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
 }
 
-_run_noob_git() {
+_run_cat_git() {
     local repolink=$(_get_repolink)
     $(_run_python_code 'from git import Repo
 import sys
@@ -75,7 +72,7 @@ repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
 
 _set_bot () {
     local zippath
-    zippath="andencento.zip"
+    zippath="catuserbot.zip"
     echo "  Downloading source code ..."
     wget -q $(_get_ziplink) -O "$zippath"
     echo "  Unpacking Data ..."
@@ -84,18 +81,21 @@ _set_bot () {
     echo "Done"
     echo "  Cleaning ..."
     rm -rf "$zippath"
-    _run_andencento_git
+    _run_catpack_git
     cd $CATPATH
-    _run_noob_git
+    _run_cat_git
     python3 ../setup/updater.py ../requirements.txt requirements.txt
     chmod -R 755 bin
-    echo "    Configuring The Bot    "
+    echo "    Starting AndencentoUserBot    "
     echo "
-    Andencento Is Setting Up
-    "
-
-    echo "
-    Wait For a While
+    '##::::'##::'######::'########:'########::'########:::'#######::'########:
+     ##:::: ##:'##... ##: ##.....:: ##.... ##: ##.... ##:'##.... ##:... ##..::
+     ##:::: ##: ##:::..:: ##::::::: ##:::: ##: ##:::: ##: ##:::: ##:::: ##::::
+     ##:::: ##:. ######:: ######::: ########:: ########:: ##:::: ##:::: ##::::
+     ##:::: ##::..... ##: ##...:::: ##.. ##::: ##.... ##: ##:::: ##:::: ##::::
+     ##:::: ##:'##::: ##: ##::::::: ##::. ##:: ##:::: ##: ##:::: ##:::: ##::::
+    . #######::. ######:: ########: ##:::. ##: ########::. #######::::: ##::::
+    :.......::::......:::........::..:::::..::........::::.......::::::..:::::
     "
     python3 -m userbot
 }
