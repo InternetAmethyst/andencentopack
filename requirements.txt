@@ -4,7 +4,6 @@ pygifsicle
 PyDictionary
 PyPDF2
 google-auth-httplib2
-googletrans==4.0.0-rc1
 telethon-tgcrypto
 vcam
 vcsi
