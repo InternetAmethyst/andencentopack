@@ -1,6 +1,6 @@
 echo "Configuring the bot"
 git clone https://github.com/teamspeedo/Speedo.git
-cd andencento
+cd Speedo
 
 echo "‌‌‎    _              _                           _          _____     _ 
    / \   _ __   __| | ___ _ __   ___ ___ _ __ | |_ ___   |___ /  __| |
@@ -10,4 +10,4 @@ echo "‌‌‎    _              _                           _          _____  
 
 "
 
-python3 -m userbot
+python3 -m main_start
